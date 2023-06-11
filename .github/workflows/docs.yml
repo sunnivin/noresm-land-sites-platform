@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - docs-OS-dependent
 
 jobs:
   docs:
@@ -15,12 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install python requirements
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ cat .python_version }}
+
+      - name: Install poetry
         run: |
-          pip install -U pip
-          pip install mkdocs
+          pip install poetry==1.4.0
+
+      - name: Install project dependencies
+        run: |
+          poetry install
 
       - name: Build and deploy docs
         run: |
           git config --global --add safe.directory /__w/noresm-land-sites-platform/noresm-land-sites-platform
-          mkdocs gh-deploy --force
+          poetry run mkdocs gh-deploy --force
