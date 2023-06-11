@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "noresm-land-sites-platform-docs"
+name = "docs"
 version = "0.1.0"
 description = ""
 authors = ["sunnivin <sunniva.indrehus@gmail.com>"]
