@@ -15,10 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Read Python version
+        id: read-python-version
+        run: echo "::set-output name=python-version::$(cat .python_version)"
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ readFile('.python_version') }}
+          python-version: ${{ steps.read-python-version.outputs.python-version }}
 
       - name: Install poetry
         run: |
