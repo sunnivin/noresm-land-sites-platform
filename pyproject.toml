@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["sunnivin <sunniva.indrehus@gmail.com>"]
 readme = "README.md"
-packages = [{include = "noresm_land_sites_platform_docs"}]
+packages = [{include = "docs"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
