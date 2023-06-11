@@ -57,3 +57,17 @@ After you see a message containing `Uvicorn running on http://0.0.0.0:8000 (Pres
 > ```echo "HOST_USER=$(whoami)\nHOST_UID=$(id -u)\nHOST_GID=$(id -g)" > .env```
 >
 > Doing this makes all the new files and folders created by the app to belong to your local user. Otherwise, all new objects will be owned by the `root` user.
+
+
+### Documentation 
+Our documentaiton is built with `mkdocs`. 
+
+#### Develop locally 
+
+Activate the virtual environment and run 
+
+    ~/noresm-land-sites-platform$ poetry shell
+    (noresm-land-sites-platform-py3.10)~/noresm-land-sites-platform$ poetry install
+    (noresm-land-sites-platform-py3.10)~/noresm-land-sites-platform$ mkdocs serve 
+
+This with bring up a mkdocs server on http://localhost:8000/

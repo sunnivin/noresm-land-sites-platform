@@ -1,18 +1,28 @@
 site_name: NorESM Land Sites Platform technical documentation
-site_url: https://noresmhub.github.io/noresm-land-sites-platform/
-nav:
-  - Home: index.md 
-  - User guide: user_guide.md
-  - Technical documentation: documentation.md
-  - Sites: land-sites.md
-  - About: about.md
-  - Contributing & code of conduct: contributing.md
-  - External tutorials and resources: resources.md
+site_url: https://sunnivin.github.io/noresm-land-sites-platform/
 extra_css:
   - stylesheets/map.css
   - stylesheets/general.css
 extra_javascript:
   - javascripts/map.js
-theme: readthedocs
-
+theme: 
+  name: readthedocs
+  features:
+    - search.suggest    # display the likeliest completion for the last word
+    - search.highlight  # highlight all occurrences
+    - search.share      # show a share button
+    - navigation.footer
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - announce.dismiss  # user can dismiss the announcement bar
+  plugins:
+    - search
+    - awesome-pages
+markdown_extensions:
+  - footnotes
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.superfences
 copyright: Copyright &copy; 2022- The NorESM Land Sites Platform Team

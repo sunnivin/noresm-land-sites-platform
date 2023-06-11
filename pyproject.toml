@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "noresm-land-sites-platform-docs"
+version = "0.1.0"
+description = ""
+authors = ["sunnivin <sunniva.indrehus@gmail.com>"]
+readme = "README.md"
+packages = [{include = "noresm_land_sites_platform_docs"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs = "^1.4.3"
+mkdocs-material = "^9.1.15"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
