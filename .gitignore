@@ -13,3 +13,4 @@ resources/cases.sqlite
 
 .env
 .ipynb_checkpoints
+site/*
