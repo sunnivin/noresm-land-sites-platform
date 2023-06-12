@@ -1,24 +1,26 @@
-name: ci 
+name: Docs
+
 on:
+  workflow_dispatch:
   push:
     branches:
-      - docs-OS-dependent 
-permissions:
-  contents: write
+      - docs-OS-dependent
+
 jobs:
-  deploy:
+  docs:
     runs-on: ubuntu-latest
+
+    container: python:3.10-bullseye
+
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+
+      - name: Install python requirements
+        run: |
+          pip install -U pip
+          pip install mkdocs
+
+      - name: Build and deploy docs
+        run: |
+          git config --global --add safe.directory /__w/noresm-land-sites-platform/noresm-land-sites-platform
+          mkdocs gh-deploy --force
